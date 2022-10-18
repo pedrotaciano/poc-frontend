@@ -1,6 +1,6 @@
 <div class="main">
   <div class="table-container">
-    <p-table #dt [value]="employees" [rowHover]="true" [rows]="10" [showCurrentPageReport]="true" [loading]="loading" responsiveLayout="scroll"
+    <p-table #dt [value]="employees" [rowHover]="true" [rows]="3" [showCurrentPageReport]="true" [loading]="loading" responsiveLayout="scroll"
         [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
       <ng-template pTemplate="caption">
         <div class="table-header">
@@ -33,4 +33,5 @@
     </p-table>
   </div>
   <app-edit-employee #modal [employee]="employeeToEdit" (employeesUpdated)="updateEmployeeList($event)"></app-edit-employee>
+  <app-signal-chat></app-signal-chat>
 </div>

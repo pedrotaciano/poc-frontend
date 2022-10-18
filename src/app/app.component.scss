@@ -4,7 +4,7 @@
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: column;
 
     background: #EFF3F8;
@@ -12,6 +12,7 @@
 
 .table-container {
     min-width: 1000px;
+    min-height: 480px;
     padding: 20px;
     border-radius: 10px;
     background: #fff;

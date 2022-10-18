@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Employee } from 'src/app/models/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { Message } from 'primeng/api';
 
 @Component({
   selector: 'app-edit-employee',
@@ -13,7 +14,7 @@ export class EditEmployeeComponent implements OnInit {
 
   show: boolean = false;
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor(private employeeService: EmployeeService) {}
 
   ngOnInit(): void {
   }

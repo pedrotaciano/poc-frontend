@@ -1,0 +1,35 @@
+<div class="container">
+    <p-toolbar>
+        <span class="chat-title">SignalR Chat</span>
+    </p-toolbar>
+    <div class="messages">
+        <ng-template ngFor let-message [ngForOf]="messages" let-i="index">
+            <div *ngIf="message.userName == userName" class="message-line me">
+                <div class="message me">
+                    <div class="username me">{{message.userName}}</div>
+                    <div>{{message.text}}</div>
+                </div>
+            </div>
+            <div *ngIf="message.userName != userName" class="message-line other">
+                <div class="message other">
+                    <div class="username other">{{message.userName}}</div>
+                    <div>{{message.text}}</div>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+    <div class="footer">
+        <form *ngIf="userName" class="form">
+            <form class="input">
+                <input placeholder="Type your message here" [formControl]="messageControl" />
+            </form>
+            <button type="submit" pButton label="Send" (click)="sendMessage()" [disabled]="!messageControl.valid" icon="pi pi-send" iconPos="right"></button>
+        </form>
+        <form *ngIf="!userName" class="form">
+            <form class="input">
+                <input placeholder="What's your name?" [formControl]="nameControl" />
+            </form>
+            <button type="submit" pButton label="Submit" (click)="setUserName()" [disabled]="!messageControl.valid" icon="pi pi-check" iconPos="right"></button>
+        </form>
+    </div>
+</div>

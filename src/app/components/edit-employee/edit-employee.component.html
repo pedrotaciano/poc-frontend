@@ -15,10 +15,10 @@
             <p-inputMask [(ngModel)]="employee.phone" placeholder="(99) 99999-9999" mask="(99) 99999-9999"></p-inputMask>
         </div>
         <span class="p-buttonset">
-            <button (click)="updateEmployee(employee)" *ngIf="employee.id" pButton pRipple label="Save" icon="pi pi-check"></button>
-            <button (click)="deleteEmployee(employee)" *ngIf="employee.id" pButton pRipple label="Delete" icon="pi pi-trash"></button>
+            <button (click)="updateEmployee(employee); toggleShow()" *ngIf="employee.id" pButton pRipple label="Save" icon="pi pi-check"></button>
+            <button (click)="deleteEmployee(employee); toggleShow()" *ngIf="employee.id" pButton pRipple label="Delete" icon="pi pi-trash"></button>
         </span>
-        <button (click)="createEmployee(employee)" *ngIf="!employee.id" pButton pRipple label="Create" icon="pi pi-plus" iconPos="right"></button>
+        <button (click)="createEmployee(employee); toggleShow()" *ngIf="!employee.id" pButton pRipple label="Create" icon="pi pi-plus" iconPos="right"></button>
     </div>
     <div (click)="toggleShow()" class="overlay"></div>
 </ng-container>
