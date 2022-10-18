@@ -1,1 +1,24 @@
-<p>edit-employee works!</p>
+<ng-container *ngIf="show">
+    <div class="modal" *ngIf="employee">
+        <h2 *ngIf="employee.id">Edit employee</h2>
+        <h2 *ngIf="!employee.id">Add employee</h2>
+        <div class="col-12 md:col-6 lg:col-4">
+            <span class="label-input">First name:</span> 
+            <input type="text" pInputText [(ngModel)]="employee.firstName" placeholder="First Name" class="input" />
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <span class="label-input">Last name:</span>
+            <input type="text" pInputText [(ngModel)]="employee.lastName" placeholder="Last Name" class="input" />
+        </div>
+        <div class="col-12 md:col-6 lg:col-4 mb-24">
+            <span class="label-input">Phone:</span>
+            <p-inputMask [(ngModel)]="employee.phone" placeholder="(99) 99999-9999" mask="(99) 99999-9999"></p-inputMask>
+        </div>
+        <span class="p-buttonset">
+            <button (click)="updateEmployee(employee)" *ngIf="employee.id" pButton pRipple label="Save" icon="pi pi-check"></button>
+            <button (click)="deleteEmployee(employee)" *ngIf="employee.id" pButton pRipple label="Delete" icon="pi pi-trash"></button>
+        </span>
+        <button (click)="createEmployee(employee)" *ngIf="!employee.id" pButton pRipple label="Create" icon="pi pi-plus" iconPos="right"></button>
+    </div>
+    <div (click)="toggleShow()" class="overlay"></div>
+</ng-container>

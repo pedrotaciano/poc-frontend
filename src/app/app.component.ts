@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Employees } from './models/employee';
+import { Employee } from './models/employee';
 import { EmployeeService } from './services/employee.service';
 
 @Component({
@@ -9,13 +9,29 @@ import { EmployeeService } from './services/employee.service';
 })
 export class AppComponent {
   title = 'PocFront';
-  employees: Employees[] = [];
+  employees: Employee[] = [];
+  employeeToEdit?: Employee;
+  loading: boolean = true;
 
   constructor(private employeeService: EmployeeService) {}
 
   ngOnInit() : void {
     this.employeeService
-    .getEmployees()
-    .subscribe((result: Employees[]) => (this.employees = result));
+    .getEmployee()
+    .subscribe((result: Employee[]) => (this.employees = result));
+
+    this.loading = false;
+  }
+
+  updateEmployeeList(employees: Employee[]) {
+    this.employees = employees;
+  }
+
+  initNewEmployee() {
+    this.employeeToEdit = new Employee();
+  }
+
+  editEmployee(employee: Employee) {
+    this.employeeToEdit = employee;
   }
 }
